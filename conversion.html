@@ -1,0 +1,56 @@
+<html ng-app="UnitConverter">
+	<head>
+		<title>Unit Converter</title>
+	</head>
+	<body>
+		<h1 style="text-align:center">Jamal's Converter App 1.0</h1>
+		<h3>Volume Conversion</h3>
+		<div ng-controller="UnitConverterController as ucc">
+			<input type="text" ng-model="ucc.volumeValue" id="Volume_value" name="VOLUMEVALUE" placeholder="Enter amount">
+            <select ng-model="ucc.selected_volume_unit" 
+                    ng-options="unit.unit_name for unit in ucc.volume_units" 
+                    ng-change="ucc.updateVolume()"></select> 
+            <select ng-model="ucc.selected_volume_unit2" 
+                    ng-options="unit.unit_name for unit in ucc.volume_units" 
+                    ng-change="ucc.updateVolume()"></select>
+			<!--<button ng-click="ucc.updateVolume()">Convert Volume</button>-->
+			<!--<select>-->
+			<div>
+				<!--<p>Selected unit is: <span ng-bind="ucc.selected_volume_unit.unit_name"></span></p>-->
+				<p>{{ucc.volumeValue}} <span ng-bind="ucc.selected_volume_unit.unit_name"></span> =  {{ucc.volumeResult}} <span ng-bind="ucc.selected_volume_unit2.unit_name"></span> </p>
+			</div>
+		</div>
+		<hr/>
+		<h3>Length Conversion</h3>
+		<div ng-controller="UnitConverterController as ucc">
+			<input type="text" ng-model="ucc.lengthValue" id="Length_value" name="LENGTHVALUE" placeholder="Enter amount">
+            <select ng-model="ucc.selected_length_unit" 
+                    ng-options="unit.unit_name for unit in ucc.length_units" 
+                    ng-change="ucc.updateLength()"></select>
+            <select ng-model="ucc.selected_length_unit2" 
+                    ng-options="unit.unit_name for unit in ucc.length_units" 
+                    ng-change="ucc.updateLength()"></select>
+			<!--<button ng-click="ucc.updateLength()">Convert Length</button>-->
+			<div>
+				<p>{{ucc.lengthValue}} <span ng-bind="ucc.selected_length_unit.unit_name"></span> =  {{ucc.lengthResult}} <span ng-bind="ucc.selected_length_unit2.unit_name"></span> </p>
+			</div>
+		</div>
+		<hr/>
+		<h3>Mass Conversion</h3>
+		<div ng-controller="UnitConverterController as ucc">
+			<input type="text" ng-model="ucc.massValue" id="Mass_value" name="MASSVALUE" placeholder="Enter amount">
+            <select ng-model="ucc.selected_mass_unit" 
+                    ng-options="unit.unit_name for unit in ucc.mass_units" 
+                    ng-change="ucc.updateMass()"></select>
+            <select ng-model="ucc.selected_mass_unit2" 
+                    ng-options="unit.unit_name for unit in ucc.mass_units" 
+                    ng-change="ucc.updateMass()"></select>
+			<!--<button ng-click="ucc.updateMass()">Convert Mass</button>-->
+			<div>
+				<p>{{ucc.massValue}} <span ng-bind="ucc.selected_mass_unit.unit_name"></span> =  {{ucc.massResult}} <span ng-bind="ucc.selected_mass_unit2.unit_name"></span> </p>
+			</div>
+		</div>
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>	
+	</body>
+</html>
